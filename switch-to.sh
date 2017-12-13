@@ -13,10 +13,10 @@ if [ -n "$2" ]; then
 	if [ -n "$PASS" ]; then
 		PASSCMD="-p$PASS"
 	fi
-    mysqladmin -f -u $USERNAME $PASSCMD drop $DBNAME
-	mysqladmin -u $USERNAME $PASSCMD create $DBNAME
-	mysql -u $USERNAME $PASSCMD $DBNAME -e "alter database \`$DBNAME\` default character set utf8 collate utf8_unicode_ci;"
-	mysql -u $USERNAME $PASSCMD --default-character-set=utf8 $DBNAME < $2
+    mysqladmin -f -u $USERNAME $PASSCMD drop $DBNAME 2> /dev/null
+	mysqladmin -u $USERNAME $PASSCMD create $DBNAME 2> /dev/null
+	mysql -u $USERNAME $PASSCMD $DBNAME -e "alter database \`$DBNAME\` default character set utf8 collate utf8_unicode_ci;" 2> /dev/null
+	mysql -u $USERNAME $PASSCMD --default-character-set=utf8 $DBNAME < $2 2> /dev/null
 fi
 
 cd $CASCADE_PATH

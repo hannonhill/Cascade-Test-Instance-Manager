@@ -161,7 +161,7 @@ gulp.task('deploy', function () {
 
     gulp.src("client/build/**")
       .pipe(s3({
-        Bucket: 'cascade-test-instance-manager-prod',
+        Bucket: customSettings.S3_BUCKET_NAME,
         ACL: 'public-read'
       }, {
         maxRetries: 5

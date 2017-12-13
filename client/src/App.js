@@ -48,7 +48,7 @@ class App extends Component {
       .then(function (response) {
         if (response.success) {
           _this.state.instanceData['currentBranchName'] = branch;
-          _this.setState({instanceData: _this.state.instanceData});
+          _this.setState({instanceData: _this.state.instanceData, branchNameToChange: '', dumpToUse: ''});
         }
       }).catch(err => {
       console.log(err);

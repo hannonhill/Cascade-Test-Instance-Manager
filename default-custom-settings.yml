@@ -1,3 +1,4 @@
 # Copy this file to custom-settings.yml and copy our AWS access key and secret key there from 1password
 AWS_ACCESS_KEY:
 AWS_SECRET_KEY:
+S3_BUCKET_NAME:
