@@ -1,0 +1,113 @@
+.App {
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+}
+
+header {
+    background-color: #222;
+    padding: 20px;
+    color: white;
+    flex: 0 1 auto;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+h2 {
+    font-size: 1.2em;
+}
+
+button {
+    font-size: 20px;
+    padding: 5px 10px 8px;
+    background: none;
+    cursor: pointer;
+}
+
+.rw-combobox {
+    display: inline-block;
+    width: 450px;
+    margin: 0 10px;
+}
+
+.rw-dropdown-list {
+    cursor: pointer;
+}
+
+.dumps.rw-combobox {
+    width: 270px;
+}
+
+.rw-list {
+    text-align: left;
+}
+
+.content {
+    flex: 0 1 auto;
+}
+
+input[type='text'], .value {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 20px;
+    color: #000;
+}
+
+input.text-field {
+    padding: 5px;
+    margin-right: 10px;
+    width: 300px;
+}
+
+div.more-menu {
+    width: 100px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+pre {
+    text-align: left;
+    margin: 20px auto 0 auto;
+    overflow: auto;
+    width: 90%;
+    flex: 1 1 auto;
+}
+
+a {
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+div.space {
+    margin-top: 20px;
+}
+
+.small-buttons {
+    margin-top: 40px;
+}
+
+.small-buttons button {
+    font-size: 14px;
+    margin-right: 20px;
+}
+
+.maximized .content, .maximized .small-buttons {
+    margin-top: 4px;
+}
+
+.maximized header {
+    padding: 0;
+}
+
+.maximized h2, .maximized h1, .maximized .content p, .maximized .deployment, .maximized div.more-menu, div.hidden {
+    display: none;
+}
+
+.maximized pre {
+    font-size: 12px;
+    margin-top: 4px;
+    width: 100%;
+}

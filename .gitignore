@@ -1,0 +1,14 @@
+/client/build
+/client/node_modules
+/client/yarn.lock
+/node_modules
+/custom-settings.yml
+package-lock.json
+status.txt
+
+/.idea/workspace.xml
+/.idea/dataSources.local.xml
+/.idea/dataSources.ids
+/.idea/uiDesigner.xml
+/.idea/dataSources.xml
+/.idea/dataSources/
