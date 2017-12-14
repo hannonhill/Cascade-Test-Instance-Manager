@@ -82,7 +82,7 @@ const handleHttpRequest = function (request, response) {
         }
       });
     } else if (parsedUrl.pathname == '/readLog') {
-      return readLastLines.read('../tomcat/logs/catalina.out', 50).then((lines) => sendResponse(response, {
+      return readLastLines.read('../tomcat/logs/cascade.log', 100).then((lines) => sendResponse(response, {
         success: true,
         logLines: lines.split('\n')
       }));
@@ -105,7 +105,7 @@ const handleHttpRequest = function (request, response) {
         'Content-Type': 'text/plain',
         'Access-Control-Allow-Origin': '*'
       });
-      response.end(fs.readFileSync("../tomcat/logs/catalina.out"));
+      response.end(fs.readFileSync("../tomcat/logs/cascade.log"));
     } else if (parsedUrl.pathname == '/dbBackup') {
       const date = new Date();
       const newDbBackupName = date.getMonth() + '-' + date.getDay() + "-" + date.getFullYear() + '-' + date.getHours() + "-" + date.getMinutes() + '.sql';
@@ -169,7 +169,7 @@ gulp.task('deploy', function () {
   });
 })
 
-gulp.task('start-instance-monitor', function () {
+gulp.task('monitor', function () {
   const server = http.createServer(handleHttpRequest);
   io = socketIO(server);
   server.listen(3002);
@@ -184,7 +184,7 @@ gulp.task('start-instance-monitor', function () {
     });
   }, 3000);
 
-  remoteOutputHandler(spawn('tail', ['-f', 'logs/catalina.out'], {
+  remoteOutputHandler(spawn('tail', ['-f', 'logs/cascade.log'], {
     cwd: '../tomcat',
     shell: true
   }));
