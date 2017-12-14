@@ -18,8 +18,9 @@ When developing locally, clone `Cascade` and `Cascade-Installer` projects so tha
 ### Running monitor on the test instance
 
 - For the first time: 
-  - Clone `Cascade` and `Cascade-Installer` projects so that they are siblings of `Cascade-Test-Instance-Manager` and set up these projects so that Cascade CMS can be deployed and can run on port `8080` by connecting to a database with name `cascade`
-  - Open ports `3001` and `3002`
-  - `npm install -g gulp && git clone https://github.com/hannonhill/Cascade-Test-Instance-Manager.git && cd Cascade-Test-Instance-Manager && npm install && cp default-custom-settings.yml custom-settings.yml && gulp start-instance-monitor`
-- Install an update (while in `Cascade-Test-Instance-Manager`): `git pull && npm update && gulp start-instance-monitor`
-
+  1. Clone `Cascade` and `Cascade-Installer` projects so that they are siblings of `Cascade-Test-Instance-Manager` and set up these projects so that Cascade CMS can be deployed and can run on port `8080` by connecting to a database with name `cascade`
+  2. Open ports `3001` and `3002`
+  3. `npm install -g gulp && git clone https://github.com/hannonhill/Cascade-Test-Instance-Manager.git && cd Cascade-Test-Instance-Manager && npm install && cp default-custom-settings.yml custom-settings.yml && nohup gulp start-instance-monitor &`
+- Install an update:
+  1. Stop currently running instance `ps aux | grep gulp`, find process id and then `kill -9 {pid}` 
+  2. While in `Cascade-Test-Instance-Manager`: `git pull && npm install && nohup gulp start-instance-monitor &`
