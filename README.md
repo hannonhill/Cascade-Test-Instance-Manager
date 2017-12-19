@@ -11,6 +11,7 @@ Then:
 
 - Run `gulp dev` for local development
 - Run `gulp deploy` to deploy the tool to S3, optionally set up CloudFront distribution and a Route 53 Record Set for the tool
+- If changes are made to `monitor` task or `handleHttpRequest` function in `gulpfile.js`, these changes need to be manually deployed remotely on each QA instance. See `Install an update` instructions below.
 
 When developing locally, clone `Cascade` and `Cascade-Installer` projects so that they are siblings of `Cascade-Test-Instance-Manager` and set up these projects so that Cascade CMS can be deployed and can run on port `8080` by connecting to a database with name `cascade`
 
