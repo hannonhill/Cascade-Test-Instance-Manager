@@ -64,7 +64,11 @@ const handleHttpRequest = function (request, response) {
       execSync('git fetch', {cwd: '../Cascade'});
 
       //Delete old branches
-      execSync('git fetch -p && git branch --merged master | grep -v master | xargs git branch -d', {cwd: '../Cascade'});
+      try {
+        execSync('git fetch -p && git branch --merged master | grep -v master | xargs git branch -d', {cwd: '../Cascade'});
+      } catch (e) {
+        // Exception is thrown when there are no branches to delete. Ignore it.
+      }
 
       const branchesRaw = execSync('git branch -r', {cwd: '../Cascade'}).toString().split('\n');
       const branches = [];
