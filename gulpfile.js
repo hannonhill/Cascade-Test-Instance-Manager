@@ -61,7 +61,11 @@ const handleHttpRequest = function (request, response) {
       });
     } else if (parsedUrl.pathname == '/getInstanceData') {
       const branch = execSync('git rev-parse --abbrev-ref HEAD', {cwd: '../Cascade'}).toString();
-      execSync('git pull', {cwd: '../Cascade'});
+      execSync('git fetch', {cwd: '../Cascade'});
+
+      //Delete old branches
+      execSync('git fetch -p && git branch --merged master | grep -v master | xargs git branch -d', {cwd: '../Cascade'});
+
       const branchesRaw = execSync('git branch -r', {cwd: '../Cascade'}).toString().split('\n');
       const branches = [];
       for (var i = 1; i < branchesRaw.length - 1; i++)
@@ -91,7 +95,6 @@ const handleHttpRequest = function (request, response) {
       const dump = parsedUrl.query.dump;
       sendWsMessage('log', 'Switching to branch ' + branch + ' with dump ' + dump);
 
-      //outputHandler(spawn('./switch-to.sh', [branch, 'normal.sql']
       remoteOutputHandler(spawn('./switch-to.sh', [branch, dump], {
         shell: true
       }));
